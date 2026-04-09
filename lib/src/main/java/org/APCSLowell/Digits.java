@@ -12,15 +12,22 @@ public class Digits {
      *  *Precondition*: `num >= 0`
      */
     public Digits(int num) {
-        /* To be implemented in part (a) */
-        throw new UnsupportedOperationException();
+        digits = new ArrayList <Integer>();
+        while(num>=10){
+            digits.add(0,num%10);
+            num = num/10;
+        }
+        digits.add(0,num);
     }
 
     /** Returns `true` if the digits in this `Digits` object are in strictly increasing order;
      *      `false` otherwise.
      */
     public boolean isStrictlyIncreasing() {
-        /* To be implemented in part (b) */
-        throw new UnsupportedOperationException();
+        for(int i = 0; i<digits.size()-1; i++){
+            if(digits.get(i)>=digits.get(i+1))
+            return false;
+        }
+        return true;
     }
 }
